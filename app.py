@@ -22,7 +22,7 @@ def predict(text):
     review = [ps.stem(word) for word in review if not word in stopwords.words('english')]
     review = ' '.join(review)
     review_vect = tfidfvect.transform([review]).toarray()
-    prediction = 'This news item is likely to be from an unverified news source, so be careful of what decision you make with it.' if model.predict(review_vect) == 0 else 'This news item is likely to be from a verified news source.'
+    prediction = 'This news item is predicted to likely be from an unverified news source, so we advise you to be careful of what decision you make with it.' if model.predict(review_vect) == 0 else 'This news item is likely to be from a verified news source.'
     return prediction
 
 @app.route('/', methods=['POST'])
