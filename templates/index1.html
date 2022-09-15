@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set active_page = "index1" %}
+{% block content %}
+<link href="{{ url_for('static',filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<div class="resized" style="text-align:center;">
+ <div id="hero" class="container" style=" width: 1000px; height:500px; margin-top:8%; display: inline-block;">
+  <h1 style = "color: #272727 font-size:72;margin-bottom:2%;"> Is the news you are reading coming from a <span style="color: #FF9900"> verified source? </span> </h1>
+  <p style="margin-bottom:6%;">Enter a news headline below to find out!  </p>
+
+  <div id="container" class="container">
+    <div class="container">
+      <div style="display:inline;">
+       
+      </div>
+      <div class='container'>
+        <form action="/" method="POST">
+          <div class="col-three-forth text-center col-md-offset-2">
+            <div class="form-group">
+              <textarea class="form-control jTextarea mt-3" id="jTextarea'" rows="5" name="text"
+               placeholder="e.g. Former Buhari minister asks court to disqualify Tinubu and Atiku on vote-buying allegation -- newslodge" required>{{text}}</textarea>
+    
+              <br><br>
+              <button class="btn btn-primary btn-outline btn-md" type="submit" name="predict">Verify</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br>
+      {% if result %}
+      <p style="text-align:center"><strong>Prediction: {{result}}</strong></p>
+      {% endif %}
+    
+    </div>
+  </div>
+</div>
+{% endblock content %}
