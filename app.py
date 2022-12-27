@@ -43,7 +43,8 @@ def api():
     prediction = predict(text)
     return jsonify(prediction=prediction)
 
-ol like Postman or by making a request to the endpoint using Python's 'requests' library. For example:
+# This endpoint will accept a POST request with a JSON object containing a field called 'text', which should contain the news article that the user wants to have predicted. The endpoint will then pass the text to the 'predict()' function, which will preprocess it and use the trained machine learning model to make a prediction. Finally, the endpoint will return the prediction as a JSON object.
+# You can test the endpoint using a tool like Postman or by making a request to the endpoint using Python's 'requests' library. For example:
 
 
 import requests
