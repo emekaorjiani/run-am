@@ -33,7 +33,8 @@ def webapp():
 
 @app.route('/about')
 def about():
-  return render_template('about.html')    
+  return render_template('about.html')  
+
 
 
 @app.route('/predict/', methods=['GET','POST'])
@@ -41,6 +42,22 @@ def api():
     text = request.args.get("text")
     prediction = predict(text)
     return jsonify(prediction=prediction)
+
+ol like Postman or by making a request to the endpoint using Python's 'requests' library. For example:
+
+
+import requests
+
+url = 'http://localhost:5000/predict'
+data = {'text': 'This is a news article about a political scandal.'}
+
+response = requests.post(url, json=data)
+prediction = response.json()['prediction']
+print(prediction)  # Output: 'This news item is likely to be from an unverified news source, so be careful of what decision you make with it.'
+
+
+
+
 
 if __name__ == "__main__":
     app.run()
